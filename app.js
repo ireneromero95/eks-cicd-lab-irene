@@ -4,8 +4,8 @@ const http = require('http');
 // ✏️  CHANGE THESE VALUES TO TRIGGER
 //     A VISIBLE UPDATE AFTER DEPLOY
 // ======================================
-const APP_VERSION = '1.0.0';
-const BG_COLOR = '#1a1a2e';
+const APP_VERSION = '2.0.0';
+const BG_COLOR = '#0f3460';
 const TEXT_COLOR = '#e94560';
 // ======================================
 
