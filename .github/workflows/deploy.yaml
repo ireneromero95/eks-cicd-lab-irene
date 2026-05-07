@@ -11,16 +11,16 @@ env:
 jobs:
   deploy:
     name: Build, Push, Deploy
-    runs-on: ubuntu:latest
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          aws-acces-key-id: ${{ secrets.AWS_ACCES_KEY_ID }}
+          aws-access-key-id: ${{ secrets.AWS_ACCES_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCES_KEY }}
-          aws-region: ${{ env.AWS_REGION}}
+          aws-region: ${{ env.AWS_REGION }}
       - name: Login to Amazon ECR
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v2
@@ -52,8 +52,8 @@ jobs:
           kubectl apply -f k8s/service.yaml
 
           # Wait for the rollout to finish
-          kubectl rollout status deployment/cicd-app --timeout=120s
+          kubectl rollout status deployment/cicd-app-irene --timeout=120s
 
           echo "--- Deployment complete! ---"
-          kubectl get pods -l app=cicd-app
-          kubectl get svc cicd-app
+          kubectl get pods -l app=cicd-app-irene
+          kubectl get svc cicd-app-irene
