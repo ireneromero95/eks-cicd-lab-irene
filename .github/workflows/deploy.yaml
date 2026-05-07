@@ -52,8 +52,8 @@ jobs:
           kubectl apply -f k8s/service.yaml
 
           # Wait for the rollout to finish
-          kubectl rollout status deployment/cicd-app-irene --timeout=120s
+          kubectl rollout status deployment/cicd-app-irene -n cicd-app --timeout=120s 
 
           echo "--- Deployment complete! ---"
-          kubectl get pods -l app=cicd-app-irene
-          kubectl get svc cicd-app-irene
+          kubectl get pods -l app=cicd-app-irene -n cicd-app
+          kubectl get svc cicd-app-irene -n cicd-app
