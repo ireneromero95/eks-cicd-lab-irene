@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cicd-app-irene
+  namespace: cicd-app
+  labels:
+    app: cicd-app-irene
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: cicd-app-irene
+  template:
+    metadata:
+      labels:
+        app: cicd-app-irene
+    spec:
+      containers:
+        - name: cicd-app-irene
+          image: IMAGE_PLACEHOLDER
+          ports:
+            - containerPort: 3000
+          resources:
+            requests:
+              cpu: '64m'
+              memory: '64Mi'
+            limits:
+              cpu: '128m'
+              memory: '128Mi'
